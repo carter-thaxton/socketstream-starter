@@ -31,7 +31,12 @@ if (config.apps) {
   }
 }
 
-// Repack assets
+// Request repacking of assets
 ss.client.packAssets();
-ss.client.load();
+
+// Start SocketStream with a dummy server, just so it will actually recreate assets, but don't listen.
+// Pretty lame that SS won't include the transport assets without this.
+var server = http.Server();
+ss.start(server);
+
 console.log('Successfully packed assets');
