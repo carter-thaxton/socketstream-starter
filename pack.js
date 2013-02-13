@@ -1,3 +1,7 @@
+// Force repacking of assets
+process.env['SS_ENV'] = 'production';
+process.env['SS_PACK'] = '1';
+
 var http   = require('http'),
     ss     = require('socketstream'),
     config = require('./config');
@@ -18,26 +22,16 @@ if (config.templateEngines) {
   }
 }
 
-// Define and serve the apps
+// Define the apps
 if (config.apps) {
   for (i = 0; i < config.apps.length; i += 1) {
     var app = config.apps[i];
-    console.log('Defining app: \'' + app.name + '\' at: \'' + app.route + '\'');
+    console.log('Defining app: \'' + app.name + '\'');
     ss.client.define(app.name, app);
-    ss.http.route(app.route, function(req, res) {
-      res.serveClient(app.name);
-    });
   }
 }
 
-// Minimize and pack assets if you type: SS_ENV=production node start.js
-if (ss.env === 'production') ss.client.packAssets();
-
-// Start web server
-var port = config.port || 3000;
-var server = http.Server(ss.http.middleware);
-console.log('Starting ' + ss.env + ' server on port: ' + port);
-server.listen(port);
-
-// Start SocketStream
-ss.start(server);
+// Repack assets
+ss.client.packAssets();
+ss.client.load();
+console.log('Successfully packed assets');
