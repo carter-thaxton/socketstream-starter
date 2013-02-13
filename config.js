@@ -1,9 +1,9 @@
-var main = {
-  name: 'main',
+var chat = {
+  name: 'chat',
   route: '/',
-  view: 'main.html',
-  css:  ['libs', 'main.styl'],
-  code: ['libs', 'main'],
+  view: 'chat.html',
+  css:  ['libs', 'chat.styl'],
+  code: ['libs', 'chat'],
   tmpl: '*'
 };
 
@@ -16,5 +16,5 @@ module.exports = {
     require('ss-hogan')
   ],
   port: 3000,
-  apps: [main]
+  apps: [chat]
 }

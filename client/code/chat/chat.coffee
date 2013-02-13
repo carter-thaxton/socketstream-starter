@@ -29,7 +29,7 @@ $('#demo').on 'submit', ->
 # Demonstrates sharing code between modules by exporting function
 exports.send = (text, cb) ->
   if valid(text)
-    ss.rpc('main.sendMessage', text, cb)
+    ss.rpc('chat.sendMessage', text, cb)
   else
     cb(false)
 

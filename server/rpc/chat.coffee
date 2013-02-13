@@ -1,6 +1,6 @@
 # Server-side Code
 
-# Define actions which can be called from the client using ss.rpc('demo.ACTIONNAME', param1, param2...)
+# Define actions which can be called from the client using ss.rpc('APPNAME.ACTIONNAME', param1, param2...)
 exports.actions = (req, res, ss) ->
 
   # Example of pre-loading sessions into req.session using internal middleware
