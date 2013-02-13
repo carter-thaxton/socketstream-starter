@@ -8,8 +8,13 @@ var main = {
 };
 
 module.exports = {
-  formatters: [require('ss-coffee'), require('ss-stylus')],
-  templateEngines: [require('ss-hogan')],
+  formatters: [
+    require('ss-coffee'),
+    require('ss-stylus')
+  ],
+  templateEngines: [
+    require('ss-hogan')
+  ],
   port: 3000,
   apps: [main]
 }
