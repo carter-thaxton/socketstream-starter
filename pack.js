@@ -1,3 +1,6 @@
+// You shouldn't need to modify this in your project.
+// Put all app configurations in config.js
+
 // Force repacking of assets
 process.env['SS_ENV'] = 'production';
 process.env['SS_PACK'] = '1';

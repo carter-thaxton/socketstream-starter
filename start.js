@@ -1,3 +1,6 @@
+// You shouldn't need to modify this in your project.
+// Put all app configurations in config.js
+
 var http   = require('http'),
     ss     = require('socketstream'),
     config = require('./config');
